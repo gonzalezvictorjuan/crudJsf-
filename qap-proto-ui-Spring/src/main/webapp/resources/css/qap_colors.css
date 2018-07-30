@@ -1,0 +1,154 @@
+/* ARISTO */
+
+#qap.aristo.blue .qi-header,
+#qap.aristo.blue .ui-widget-header,
+#qap.aristo.blue .ui-state-active {
+    background: #6082cb url("#{resource['primefaces-start:images/ui-bg_inset-hard_65_85b2cb_1x100.png']}") 50% 50% repeat-x;
+    background: #6082cb linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+    background: #6082cb -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,0.4)));
+    background: #6082cb -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+}     
+
+#qap.aristo.green .qi-header,
+#qap.aristo.green .ui-widget-header,
+#qap.aristo.green .ui-state-active {
+    background: #85c28b url("#{resource['primefaces-start:images/ui-bg_inset-hard_65_85b2cb_1x100.png']}") 50% 50% repeat-x;
+    background: #85c28b linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+    background: #85c28b -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,0.4)));
+    background: #85c28b -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+}     
+
+#qap.aristo.red .qi-header,
+#qap.aristo.red .ui-widget-header,
+#qap.aristo.red .ui-state-active {
+    background: #c5828b url("#{resource['primefaces-start:images/ui-bg_inset-hard_65_85b2cb_1x100.png']}") 50% 50% repeat-x;
+    background: #c5828b linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+    background: #c5828b -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,0.4)));
+    background: #c5828b -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+}     
+
+/* BLITZER */
+#qap.blitzer.blue .qi-header,
+#qap.blitzer.blue .ui-state-active,
+#qap.blitzer.blue .ui-widget-header {
+    /* blue wave header  */
+    background: rgb(0,80,148) url("#{resource['images/header-transp.png']}") 50% 50% repeat-x;
+    border-color: rgb(0,70,128);
+}     
+
+#qap.blitzer.green .qi-header,
+#qap.blitzer.green .ui-state-active,
+#qap.blitzer.green .ui-widget-header {
+    /* green wave header  */    
+    background: rgb(40,120,70) url("#{resource['images/header-transp.png']}") 50% 50% repeat-x;
+    border-color: rgb(60,120,90);
+}     
+
+#qap.blitzer.red .qi-header,
+#qap.blitzer.red .ui-state-active,
+#qap.blitzer.red .ui-widget-header {
+    /* green wave header  */    
+    background: #cc0000 url("#{resource['images/header-transp.png']}") 50% 50% repeat-x;
+    border-color: rgb(250,20,30);
+}     
+
+/* START */
+#qap.start.blue .qi-header,
+#qap.start.blue .ui-state-active {
+    background: #1151a0 url("#{resource['images/header-transp.png']}") 50% 50% repeat-x;
+}         
+    
+#qap.start.green .qi-header {
+    background: #6eac2c url("#{resource['primefaces-start:images/ui-bg_gloss-wave_50_6eac2c_500x100.png']}") 50% 50% repeat-x;
+}         
+    
+#qap.start.red .qi-header,
+#qap.start.red .ui-state-active {
+    background: #dd3333 url("#{resource['images/header-transp.png']}") 50% 50% repeat-x;
+}         
+
+#qap.start.blue .ui-inputfield,
+#qap.start.blue .ui-widget-content .ui-inputfield,
+#qap.start.green .ui-inputfield,
+#qap.start.green .ui-widget-content .ui-inputfield,
+#qap.start.red .ui-inputfield,
+#qap.start.red .ui-widget-content .ui-inputfield{
+    /*restaura default para inputs*/
+    background: white;
+    color: #313131;
+    box-shadow: none;
+}
+
+/* FLICK */
+#qap.flick.green .qi-header,
+#qap.flick.green .ui-state-hover,
+#qap.flick.green .ui-state-default.ui-state-hover {
+    border: 1px solid #3cc761;
+    background: #3cc761;
+    color: white;
+}     
+
+#qap.flick.green .ui-state-default {
+    color: #309c4b;
+}     
+
+#qap.flick.red .qi-header {
+    background: #ff0084;
+    color: white;
+}     
+
+#qap.flick.green .ui-inputfield.ui-state-default,
+#qap.flick.green .ui-inputfield.ui-state-hover {
+    /* pongo el original */
+    background:white;
+}
+
+
+
+/* HOT-SNEAKS */
+#qap.hot-sneaks.blue .ui-widget,
+#qap.hot-sneaks.blue .ui-widget-header,
+#qap.hot-sneaks.blue .ui-state-default,
+#qap.hot-sneaks.green .ui-widget,
+#qap.hot-sneaks.green .ui-widget-header,
+#qap.hot-sneaks.green .ui-state-default,
+#qap.hot-sneaks.red .ui-widget,
+#qap.hot-sneaks.red .ui-widget-header,
+#qap.hot-sneaks.red .ui-state-default,
+#qap.hot-sneaks.red {
+    background-image: none !important;
+}     
+
+#qap.hot-sneaks.blue .ui-state-active {
+    border: 1px solid #666666;
+}     
+
+#qap.hot-sneaks.blue .ui-state-active,
+#qap.hot-sneaks.blue .qi-header {
+    background: #4d5e70;
+}     
+
+#qap.hot-sneaks.green .ui-state-default,
+#qap.hot-sneaks.green .ui-widget-content .ui-state-default,
+#qap.hot-sneaks.green .ui-widget-header .ui-state-default {
+    background: #92cc99; 
+}
+
+#qap.hot-sneaks.green .ui-inputfield.ui-state-default,
+#qap.hot-sneaks.green .ui-inputfield.ui-state-hover {
+    /* pongo el original */
+    background:white;
+}
+
+#qap.hot-sneaks.red .ui-state-active,
+#qap.hot-sneaks.green .ui-state-active,
+#qap.hot-sneaks.green .ui-state-default.ui-state-active,
+#qap.hot-sneaks.green .ui-widget-content .ui-state-default.ui-state-active,
+#qap.hot-sneaks.green .ui-widget-header .ui-state-default.ui-state-active {
+    /* pongo el original */
+    border: 1px solid transparent;
+    background: #db4865;
+}
+
+
+

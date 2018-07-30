@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ContactoEditDlg" widgetVar="ContactoEditDialog" 
+                  header="Editar Contacto" showEffect="drop" hideEffect="drop"
+                  modal="true" resizable="false" >
+
+            <h:form id="ContactoEditForm">
+
+                <h:panelGroup id="nav">                    
+                    
+                    <p:commandButton value="#{prop_crud.Siguiente}" icon="ui-icon-triangle-1-e" 
+                                     actionListener="#{contactos.next}" 
+                                     update="nav, display,:ContactoListForm, :ContactosSideForm" style="float: right;" iconPos="right" />
+                    <p:commandButton value="#{prop_crud.Anterior}" icon="ui-icon-triangle-1-w" 
+                                     actionListener="#{contactos.previous}" 
+                                     update="nav, display,:ContactoListForm, :ContactosSideForm" style="float: right;"/>
+                    <h:outputText value="#{contactos.selected.nombreCorto} &nbsp;" 
+                                  style="font-weight: bold; font-size: 26px;" />
+                    <p:separator />
+
+                </h:panelGroup>
+
+                <ui:include src="pop_edit_data.xhtml"/>
+
+                <p:separator />
+                <p:commandButton id="btnSaveContacto" value="#{prop_crud.Grabar}" icon="ui-icon-disk" 
+                                 actionListener="#{contactos.save}" 
+                                 update="display,:ContactoListForm,:growl" 
+                                 onclick="PF('ContactoEditDialog').hide()" />
+                <p:commandButton value="Renombrar" style="margin-left: 8px; " 
+                                 action="#{contactos.renameFile()}" 
+                                 rendered="#{contactos.selected != null}"
+                                 update="display,:ContactoListForm,:growl" 
+                                 title="Renombrar como '# {contactos.fileName()}'"/>    
+                <p:commandButton value="Borrar Foto" icon="ui-icon-trash" 
+                                 style="margin-left: 8px;" 
+                                 actionListener="#{contactos.clearFile}" 
+                                 update="display,:ContactoListForm,:growl" />
+
+                <p:commandButton value="#{prop_crud.Cancelar}" icon="ui-icon-cancel" 
+                                 onclick="PF('ContactoEditDialog').hide()" 
+                                 style="float: right; margin-left: 8px; " />
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

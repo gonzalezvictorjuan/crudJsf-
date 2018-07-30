@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <h:form id="menuForm">
+            <p:menubar styleClass="qi-menubar" style="text-transform: uppercase;" >
+                <p:menuitem value="Inicio" icon="ui-icon-home" 
+                            styleClass="#{config.activeURL('/faces/app/index_user.xhtml')} downtab" 
+                            url="/faces/home.xhtml" />
+                
+                <p:menuitem value="Lista" icon="ui-icon-note" 
+                            styleClass="#{config.activeURL('/faces/crud-list.xhtml')} downtab" 
+                            url="/faces/crud-list.xhtml" />
+                <p:menuitem value="Vista" icon="ui-icon-document" 
+                            styleClass="#{config.activeURL('/faces/crud-filter.xhtml')} downtab" 
+                            url="/faces/crud-filter.xhtml" />
+                <p:menuitem value="Edicion" icon="ui-icon-person" 
+                            styleClass="#{config.activeURL('/faces/contactos.xhtml')} downtab"  
+                            url="/faces/contactos.xhtml" />
+
+                <p:menuitem value="Configuracion" icon="ui-icon-gear" rendered="false" 
+                            styleClass="#{config.activeURL('/faces/config/index.xhtml')} downtab"  
+                            style="margin-left: 100px;"
+                            url="/faces/configuracion.xhtml" />
+
+                <p:submenu label="Ayuda" styleClass="qi-submenu" rendered="false" >
+                    <p:menuitem value="Informacion del Sistema" url="/faces/gral/info/pymex_info.xhtml" />
+                    <p:menuitem value="Pagina de Soporte" url="/faces/gral/info/pymex_info.xhtml"/>
+                </p:submenu>
+            </p:menubar>
+        </h:form>
+    </ui:composition>
+
+</html>

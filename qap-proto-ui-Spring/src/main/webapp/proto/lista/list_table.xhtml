@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+                xmlns:p="http://primefaces.org/ui">
+
+    <p:dataTable id="datalist" value="#{contactos.items}" var="item" 
+                 rowKey="#{item.id}" emptyMessage="( ningun contacto )"                 
+                 paginator="false" paginatorPosition="top" 
+                 rows="50" rowsPerPageTemplate="20,50,100,500"
+                 filteredValue="#{contactos.filteredItems}"
+                 widgetVar="itemsContactos"
+                 scrollable="true" scrollHeight="#{config.getHeightAreaRel(210)}" 
+                 tableStyle="table-layout:auto;width:100%;"
+                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} headerRight"
+                 >
+
+        <p:ajax event="rowSelect"   update=":ContactoListForm"/>
+        <p:ajax event="rowUnselect" update=":ContactoListForm"/>
+
+        <f:facet name="headerRight">
+            <p:inputText id="globalFilter"  onkeyup="PF('itemsContactos').filter()" placeholder="Buscar" style="margin-right: 10px" >
+                <p:ajax event="keyup" listener="#{contactos.refresh()}"/>
+            </p:inputText>
+        </f:facet>
+        <p:column headerText="Codigo" sortBy="#{item.cod}" priority="2" 
+                  style="text-align: center; width: 80px; " >
+            <h:outputText value="#{item.cod}"/>
+        </p:column>
+        <p:column headerText="Ed" priority="5" 
+                  style="text-align: center; width: 35px;"  
+                  rendered="true" >
+            <p:commandLink onclick="PF('ContactoEditDialog').show()" update="datalist" >
+                <h:graphicImage value="/resources/images/crud/edit-16.png" style="margin: 0px 4px;" />
+            </p:commandLink>
+        </p:column>           
+        <p:column headerText="Nombre" sortBy="#{item.nombreCorto}" priority="1" >
+            <p:commandLink update="datalist"  >
+                <h:outputText value="#{item.nombreCorto}"/>
+                <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
+            </p:commandLink>
+        </p:column>
+        <p:column headerText="Nombre Completo" sortBy="#{item.nombre}" priority="4" rendered="false" >
+            <h:outputText value="#{item.nombre}"/>
+        </p:column>
+        <p:column headerText="DNI" sortBy="#{item.docNro}" priority="4"
+                  style="width: 120px; "  >
+            <h:outputText value="#{item.docNro}"/>
+        </p:column>
+        <p:column headerText="Curso" sortBy="#{item.etiqueta}" priority="3" 
+                  style="width: 150px; "   >
+            <h:outputText value="#{item.etiqueta}"/>
+        </p:column>
+        <f:facet name="footer">
+            <h:outputText value="#{fn:length(contactos.items)} Contactos"/>
+        </f:facet>
+
+        <!--Columnas utilizadas para filtro-->
+        <p:column visible="false" filterBy="#{item.cod}"  filterMatchMode="contains"/>
+        <p:column visible="false" filterBy="#{item.nombreCorto}"  filterMatchMode="contains"/>
+        <p:column visible="false" filterBy="#{item.nombre}"  filterMatchMode="contains"/>        
+        <p:column visible="false" filterBy="#{item.etiqueta}"  filterMatchMode="contains"/>
+
+    </p:dataTable>
+
+</ui:composition>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition>
+
+        <h:panelGroup id="display" layout="block" >
+            <p:focus  context="foc" />
+            <p:panelGrid  columns="2" rendered="#{contactos.selected != null}">
+
+                <p:commandLink update="display, image, :ContactoListForm, :growl" 
+                               onclick="PF('ContactoAddFileDialog').show()" >
+                    <p:graphicImage id="image" value="/resources/images/contacto_neutro.png" width="96" alt="foto"/> 
+                </p:commandLink>
+
+                <h:panelGroup id="Anot" layout="block" >
+                    <h:outputLabel value="Anotaciones" for="notas" /><br />
+                    <p:inputTextarea id="notas" value="#{contactos.selected.notas}" rows="5" style="width: 240px;" />
+                </h:panelGroup> 
+
+                <h:outputLabel value="Codigo*" for="cod" />
+                <p:inputText id="cod" value="#{contactos.selected.cod}"  style="width: 100px;" 
+                             required="true" requiredMessage="El valor para Codigo es obligatorio."/>
+
+                <h:outputLabel value="Nombre Completo" for="nombre" />
+                <h:panelGroup id="foc" layout="block" >
+                    <p:inputText id="nombre" value="#{contactos.selected.nombre}"  style="width: 240px;"  tabindex="0"
+                                 valueChangeListener="#{contactos.changeNombre}" >  
+                            <p:ajax event="change" update="nombreCorto, genero, image"/>    
+                    </p:inputText>
+                </h:panelGroup> 
+
+                <h:outputLabel value="Nombre Corto*" for="nombreCorto" />
+                <p:inputText id="nombreCorto" value="#{contactos.selected.nombreCorto}"  style="width: 240px;" 
+                             required="true" requiredMessage="El valor para Nombre es obligatorio."/>
+
+                <h:outputLabel value="Domicilio" for="domicilio" />
+                <p:inputText id="domicilio" value="#{contactos.selected.domicilio}"  style="width: 240px;" />
+
+                <h:outputLabel value="Localidad" for="localidad" />
+                <p:inputText id="localidad" value="#{contactos.selected.localidad}" style="width: 240px;" />
+
+                <h:outputLabel value="Telefono" for="telefono" />
+                <p:inputText id="telefono" value="#{contactos.selected.telefono}"  style="width: 240px;" />
+
+                <h:outputLabel value="Correo" for="correo" />
+                <p:inputText id="correo" value="#{contactos.selected.correo}"  style="width: 240px;" />
+
+                <h:outputLabel value="DNI" for="docNro" />
+                <p:inputText id="docNro" value="#{contactos.selected.docNro}"  style="width: 100px;" />
+
+                <h:outputLabel value="Genero" for="genero" />
+                <p:selectOneMenu id="genero" value="#{contactos.selected.genero}" style="width: 108px;" >  
+                    <f:selectItem itemValue="Neutro" itemLabel="Neutro" />
+                    <f:selectItem itemValue="Hombre" itemLabel="Hombre" />
+                    <f:selectItem itemValue="Mujer"  itemLabel="Mujer" />
+                    <f:selectItem itemValue="Empresa" itemLabel="Empresa" />
+                    <p:ajax event="change" update="display"/>
+                </p:selectOneMenu> 
+
+                <h:outputLabel value="Estado" for="estado" />
+                <p:selectOneMenu id="estado" value="#{contactos.selected.estado}" style="width: 108px;" >  
+                    <f:selectItem itemValue="Activo" itemLabel="Activo" />
+                    <f:selectItem itemValue="Inactivo" itemLabel="Inactivo" />
+                    <p:ajax event="change" update="display"/>
+                </p:selectOneMenu> 
+
+                <h:outputLabel value="Curso" for="categoria" />
+                <p:inputText id="categoria" value="#{contactos.selected.categoria}"  style="width: 100px;" />
+
+            </p:panelGrid>
+        </h:panelGroup>
+
+    </ui:composition>
+
+</html>

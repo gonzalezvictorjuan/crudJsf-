@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <div class="qi-rightbar qi-sidesection" 
+                 style="width: 300px; padding: 10px 10px 0px 10px;" >
+
+                <p:panel header="Sesion Activa" style="height: 130px;" >
+                
+                    <br />
+                    <p><h:outputText value="Bienvenido, " /><b><h:outputText value="#{id.getCurrentUser()}"/></b></p>
+                    <br />
+                    <h:form id="loginForm" prependId="false">
+                        <!--h:button id="login" outcome="/app/logout" value="Cerrar Sesion" /--> 
+                        <h:commandLink action="#{id.doLogout()}" value="Cerrar Sesion" />
+                    </h:form>
+
+                </p:panel>
+                <br />
+                <p:panel header="Operaciones Frecuentes" style="height: 400px;" >
+                
+                    <br />
+                    <p><h:link outcome="/crud-list.xhtml" value="Listado de Alumnos" />
+                    </p>
+                    <p><h:link outcome="/crud-filter.xhtml" value="Vistas de Alumnos" />
+                    </p>
+                    <p><h:link outcome="/contactos.xhtml" value="Edicion de Alumnos" />
+                    </p>
+                    <br />
+
+                </p:panel>
+            </div>    
+        </ui:composition>
+    </h:body>
+
+</html>

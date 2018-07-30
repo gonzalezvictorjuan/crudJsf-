@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+                xmlns:p="http://primefaces.org/ui">
+
+    <p:dataTable id="afiplist" value="#{contactos.items}" var="item" rendered="#{contactos.filter.vista eq 'Info'}" 
+                 rowKey="#{item.id}" emptyMessage="( ningun contacto )"                 
+                 paginator="false" paginatorPosition="top" 
+                 rows="50" rowsPerPageTemplate="20,50,100,500"
+                 widgetVar="itemsContactos"
+                 scrollable="true" scrollHeight="#{config.getHeightAreaRel(220)}" 
+                 tableStyle="table-layout:auto;width:100%;"
+                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} headerRight"                 
+                 >
+
+        <p:ajax event="rowSelect"   update=":ContactoListForm"/>
+        <p:ajax event="rowUnselect" update=":ContactoListForm"/>
+
+        <p:column headerText="Codigo" sortBy="#{item.cod}" priority="1" 
+                  style="text-align: center; width: 80px; " >
+            <h:outputText value="#{item.cod}"/>
+        </p:column>
+        <p:column headerText="Ed" priority="4" style="text-align: center; width: 35px;"  >
+            <p:commandLink onclick="PF('ContactoEditDialog').show()" update="afiplist" >
+                <h:graphicImage value="/resources/images/crud/edit-16.png" style="margin: 0px 4px;" />
+                <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
+            </p:commandLink>
+        </p:column>           
+        <p:column sortBy="#{item.nombreCorto}" priority="2" >
+            <f:facet name="header">
+                <h:outputText value="Nombre"/>
+            </f:facet>
+            <p:commandLink onclick="PF('ContactoViewDialog').show()" update="afiplist, :ContactoViewForm"  >
+                <h:outputText value="#{item.nombreCorto}"/>
+                <f:setPropertyActionListener value="#{item}" target="#{contactos.selected}" />  
+            </p:commandLink>
+        </p:column>
+        <p:column sortBy="#{item.nombre}" priority="3" >
+            <f:facet name="header">
+                <h:outputText value="Nombre Completo"/>
+            </f:facet>
+            <h:outputText value="#{item.nombre}"/>
+        </p:column>
+        <p:column sortBy="#{item.domicilio}" priority="5" >                 
+            <f:facet name="header">
+                <h:outputText value="#{prop_contactos.domicilio}"/>
+            </f:facet>
+            <h:outputText value="#{item.domicilio}"/>
+        </p:column>
+        <p:column sortBy="#{item.localidad}" priority="6" style="text-align: center;" >                  
+            <f:facet name="header">
+                <h:outputText value="#{prop_contactos.localidad}&nbsp;&nbsp;&nbsp;"/>
+            </f:facet>
+            <h:outputText value="#{item.localidad}"/>
+        </p:column>  
+        <p:column sortBy="#{item.telefono}" style="text-align: center;" >
+            <f:facet name="header">
+                <h:outputText value="#{prop_contactos.telefono}&nbsp;&nbsp;&nbsp;"/>
+            </f:facet>
+            <h:outputText value="#{item.telefono}"/>
+        </p:column>
+        <p:column sortBy="#{item.correo}" >
+            <f:facet name="header">
+                <h:outputText value="#{prop_contactos.correo}"/>
+            </f:facet>
+            <h:outputText value="#{item.correo}"/>
+        </p:column>
+        <f:facet name="footer">
+            <h:outputText value="#{fn:length(contactos.items)} #{contactos.filter.modulo}"/>
+        </f:facet>
+
+        <!--Columnas utilizadas para filtro-->
+        <p:column visible="false" filterBy="#{item.cod}"  filterMatchMode="contains"/>
+        <p:column visible="false" filterBy="#{item.nombreCorto}"  filterMatchMode="contains"/>
+        <p:column visible="false" filterBy="#{item.docNro}"  filterMatchMode="contains"/>        
+        <p:column visible="false" filterBy="#{item.nombre}"  filterMatchMode="contains"/>
+        <p:column visible="false" filterBy="#{item.domicilio}"  filterMatchMode="contains"/>
+
+    </p:dataTable>
+
+</ui:composition>

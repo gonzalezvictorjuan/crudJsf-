@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="pagetitle">#{appProp.PageTitle}</ui:insert></title>
+        <link rel="shortcut icon" type="image/png" href="#{request.contextPath}#{app.info.icon}"/>
+
+        <h:outputStylesheet library="css" name="qap.css"/>
+        <h:outputStylesheet library="css" name="qap_themes.css"/>
+        <h:outputStylesheet library="css" name="qap_colors.css"/>
+    </h:head>
+
+    <h:body id="qap" style="border: none;" styleClass="#{config.theme} #{config.base_color}" >
+
+        <p:growl id="growl" life="3000" showDetail="true" showSummary="true"/>
+
+            <!-- North -->
+            <h:panelGroup layout="block" >               
+                <h:panelGroup layout="block" styleClass="qi-header ui-widget ui-widget-header" 
+                              style="font-weight: bold; border: none;"  >               
+                    <ui:insert name="header" >
+                        <ui:include src="/resources/templates/appheader.xhtml"/>
+                    </ui:insert>
+                </h:panelGroup>
+                
+                <ui:insert name="menu" >
+                    <ui:include src="/resources/templates/appmenu.xhtml"/>
+                </ui:insert>
+            </h:panelGroup>
+
+            <!-- Left -->
+            <ui:insert name="sidebar">
+                <!--ui:include src="/app/sidebar.xhtml" /-->                     
+            </ui:insert>
+
+            <!-- Center -->
+            <h:panelGroup layout="block" styleClass="qi-content ui-widget-content" 
+                          style="height: #{config.heightArea}px; border: none;" >                
+                <ui:insert name="body">
+                    <!--ui:include src="/app/welcome_info.xhtml" /-->                     
+                </ui:insert>
+            </h:panelGroup>
+
+            <!-- South -->
+            <h:panelGroup layout="block" styleClass="qi-footer ui-widget" 
+                          style="padding-top: 14px; ">
+                <ui:insert name="footer">
+                    <ui:include src="/resources/templates/appfooter.xhtml"/>
+                </ui:insert>
+            </h:panelGroup>
+    </h:body>
+
+</html>

@@ -1,0 +1,282 @@
+/* (recomendados DW) */
+h1, h2, h3, h4, h5, h6, p { /* conviene sumar relleno a los lados del elemento 
+    dentro de las divs, en lugar de en las divs propiamente dichas.*/
+    margin-top: 0;	 
+    padding-right: 0px;
+    padding-left: 0px; 
+}
+
+a img { /* elimina el borde azul de algunos navegadores.*/
+    border: none;
+}
+
+/* clases float/clear varias */
+.rightfloat { /* flotar en la parte derecha de la página.*/
+    float: right;
+    margin-left: 8px;
+}
+
+.leftfloat { /* flotar en la parte izquierda de la página.*/
+    float: left;
+    margin-right: 8px;
+}
+
+.clearfloat { /* esta clase puede situarse en una <br /> o div vacía 
+    como elemento final tras la última div flotante */
+    clear: both;
+    height: 0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+/*** LAYOUT ***/
+body {
+    margin: 0;
+    padding: 0px;
+    /*min-width: 1180px;*/
+}
+
+
+.qi-container {/* este contenedor de anchura fija rodea a las demás divs.*/
+    width: 1180px; 
+    /* no se asigna un alto. */
+    margin: 10px auto; /* el valor automático de los lados, unido a la anchura, centra el diseño */
+
+    /* box */
+    border-color: #C0C0C0;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px 8px 8px 8px;    
+}
+
+.qi-header { /* encabezado */
+    /* no se asigna alto ni ancho. */
+    text-align: left !important; 
+    border: none; 
+    /*border-bottom: 1px solid #C0C0C0 !important; /* linea de separación */
+}
+
+.qi-menubar { 
+    /* no se asigna alto ni ancho. */
+    padding: 0px 10px; 
+    border: none; 
+    border-radius: 0px; 
+    border-top: 1px solid #C0C0C0; /* linea de separación */
+    border-bottom: 1px solid #C0C0C0; /* linea de separación */
+}
+
+.qi-content {
+    overflow: auto; 
+    height: 600px; /* podria dejarse flotante */
+    /* no se asigna un ancho. */
+    margin: 0;
+    padding: 10px 10px 0px 10px;
+}
+
+.qi-footer { /* pie de página.*/
+    height: 38px;
+    /* no se asigna un ancho. */
+    padding: 4px 12px 4px 12px; 
+    border: none; 
+    border-top: 1px solid #C0C0C0 !important; /* linea de separación */
+}
+
+.qi-sidebar {
+    float: left;
+    width: 160px;
+    padding: 0px 1px 10px 1px;
+	
+    border: 0px;
+    border-right: 1px solid #C0C0C0;
+}
+
+.qi-rightbar {
+    float: right  !important; 
+    width: 260px;
+    height: 600px; 
+    padding: 0px 1px 0px 1px;
+	
+    border: 0px;
+    border-left: 1px solid #C0C0C0 !important; 
+    border-right: 0px !important;
+}
+
+/* Fuentes */
+.ui-widget {
+    font-size: 12px !important;
+}
+
+/* Bordes Redondeados */
+#qap .nobox {
+    border-style: none !important;
+    border-width: 0px !important;
+    border-radius: 0px !important;
+}
+
+#qap .box {
+    border-color: #C0C0C0;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+#qap .box_top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-style: none;
+}
+
+#qap .box_bottom {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-style: none;
+}
+
+.qi-pageheader, 
+.qi-pageheader a { /* PALETA */
+    background: #3A3A3A; 
+    color: white; 
+    font-weight: bold;
+}
+
+/* Color de footer, sidebars y regiones secundarias*/
+.qi-sidesection { /* PALETA */
+    background: #f0f0f0; /* gris claro */
+    color: #3A3A3A;      /* gris oscuro */
+    /* ESTILO OSCURO * /
+    background: #3A3A3A; 
+    color: #f0f0f0; */     
+}
+
+.qi-backcolor { 
+    background: white; 
+}
+
+.qi-notexture .ui-state-default,
+.qi-notexture .ui-state-active,
+.qi-notexture .ui-state-hover,
+.qi-notexture .ui-widget-header,
+.qi-notexture .ui-widget-content,
+.qi-notexture {
+    background-image: none !important;
+}
+
+.qi-lines .ui-state-default, 
+.qi-lines .ui-widget-content .ui-state-default, 
+.qi-lines .ui-widget-header .ui-state-default {
+    border-color: #c3c3c3;
+}
+
+/* Menu bar */
+.qi-menubar.ui-menu {
+    padding: 3px 10px;
+    margin: 0px;
+}
+
+.qi-menubar.ui-menu .ui-menuitem {
+    margin: 0px 3px;
+}
+
+.qi-menubar.ui-menu .ui-menuitem-link {
+    margin: 0px;
+    padding: 3px;
+}    
+
+#qap .qi-menubar.ui-menu .ui-menuitem .downtab,
+#qap .qi-menubar.ui-menu .ui-menuitem .downtab .ui-menuitem-link  {
+    margin: -3px 3px 0px 3px;
+    padding: 6px 8px 3px 8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.qi-menubar.ui-menu .ui-menuitem .downtab.ui-state-active  {
+    border-width: 1px;
+    border-top-width: 0px;
+    border-style: solid;
+    border-color: #C0C0C0;
+}
+
+.qi-menubar.ui-menu .ui-state-active, 
+.qi-menubar.ui-menu .ui-state-default {
+    font-weight: bold;
+}
+
+/* Menu sidebar */
+.qi-sidemenu.ui-menu {
+    padding: 14px 0px 14px 10px;
+    margin: 0px;
+}
+
+.qi-sidemenu.ui-menu .ui-menuitem {
+    margin: 6px 0px;
+}
+
+#qap .qi-sidemenu.ui-menu .ui-menuitem-link {
+    padding: 6px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #C0C0C0;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}   
+
+.qi-sidemenu.ui-menu .ui-state-active {
+    font-weight: bold;
+    /*margin-right: -2px; /* borrado de borde */
+}
+
+.ui-layout-resizer {
+    background-color: silver !important;
+}   
+
+.ui-layout-resizer-closed {
+    border-radius: 0px !important;
+}   
+
+.ui-accordion.no-margin .ui-accordion-content  {
+    padding: 0px !important;
+}   
+
+.pi-work {
+    margin: 0px auto; 
+    margin-bottom: 8px; 
+    border-color: #C0C0C0; 
+    border-style: solid; 
+    border-width: 1px;
+}     
+
+.pi-work-area {
+    width: 734px; 
+    height: 426px; 
+}     
+
+.pi-work-height {
+    height: 426px; 
+}     
+
+#qap .qi-date input {
+    width: 70px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}     
+
+#qap .qi-date button {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-left: -1px;
+    height: 24px;
+}     
+
+#qap .ui-panelgrid-content {
+    border-radius: 3px;
+}     
+
+#qap .ui-datatable-xahorano {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}     
