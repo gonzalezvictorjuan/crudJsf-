@@ -6,11 +6,17 @@
     </context-param>
     
     <!--Configuracion del thema-->
-    <context-param>
+<!--    <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>bootstrap</param-value>
-    </context-param> 
+    </context-param> -->
     
+     <!--7i: temas PrimeFaces -->
+    <context-param>
+            <param-name>primefaces.THEME</param-name>
+            <param-value>qap-material</param-value>
+    </context-param>  
+
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

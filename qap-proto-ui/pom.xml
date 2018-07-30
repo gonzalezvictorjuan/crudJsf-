@@ -34,6 +34,12 @@
             <version>1.0.10</version>
         </dependency>
         
+        <!-- Siete Ideas Libs -->
+        <dependency>
+            <groupId>com.sieteideas</groupId>
+            <artifactId>qap-faces</artifactId>
+            <version>1.0.1</version>
+        </dependency>
         
     </dependencies>
 
