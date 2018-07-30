@@ -12,6 +12,9 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+        <!--Agrego la version para luego utilizarla mas abajo-->
+        <spring.version>4.3.10.RELEASE</spring.version>
     </properties>
     
     <dependencies>
@@ -42,6 +45,19 @@
             <artifactId>qap-faces</artifactId>
             <version>1.0.1</version>
         </dependency>
+        
+        <!-- Spring framework -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>    <!--Aqui utilizo la version que declare al principio del archivo-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>    <!--Aqui utilizo la version que declare al principio del archivo-->
+        </dependency>
+
     </dependencies>
 
     <build>
