@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <h:form>
+            <!--NOTA: no se usan listas desde un bean para no generar dependencias en el recurso-->
+            <h:panelGrid columns="6" border="0" cellpadding="0" cellspacing="2" styleClass="ui-widget"  
+                         style="float: right; margin: 0px 4px; text-transform: none; " rendered="#{id.logged eq true}">    
+                
+                <p:outputLabel value="Plantilla" style="margin: 4px 4px 4px 8px;"/>
+                <p:selectOneMenu style="width: 160px;"
+                                 value="#{config.userTemplate}" onchange="submit()" >  
+                    <!--f:selectItems value="# {config.getUserTemplate_options()}" /-->
+                    <f:selectItem itemValue="max-600"  itemLabel="max-600"/> 
+                    <f:selectItem itemValue="max-700"  itemLabel="max-700"/> 
+                    <f:selectItem itemValue="max-750"  itemLabel="max-750"/> 
+                </p:selectOneMenu>  
+
+                <p:outputLabel value="Tema" style="margin: 4px 4px 4px 8px;"/>
+                <p:selectOneMenu id="themeSwitcher" style="width: 160px;"  
+                             value="#{config.theme}" onchange="submit()" >                      
+                    <!--f:selectItems value="# {config.getTheme_options()}" /-->
+                    <f:selectItem itemValue="qap-boots"  itemLabel="Twitter Bootstrap"/> 
+                    <f:selectItem itemValue="qap-blitz"  itemLabel="Primefaces Blitzer"/> 
+                    <f:selectItem itemValue="qap-material" itemLabel="Google Material"/> 
+                    <f:selectItem itemValue="aristo"  itemLabel="Primefaces Aristo"/>  
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Color" style="margin: 4px 4px 4px 8px;"/>
+                <p:selectOneMenu style="width: 160px;"
+                                 value="#{config.base_color}" onchange="submit()" >  
+                    <!--f:selectItems value="# {config.getBaseColor_options()}" /-->
+                    <f:selectItem itemValue="original"  itemLabel="Original"/> 
+                    <f:selectItem itemValue="blue"  itemLabel="Base Azul"/> 
+                    <f:selectItem itemValue="green"  itemLabel="Base Verde"/> 
+                    <f:selectItem itemValue="red"  itemLabel="Base Roja"/> 
+                </p:selectOneMenu>  
+                
+            </h:panelGrid>
+        </h:form>                    
+    </ui:composition>
+
+</html>
