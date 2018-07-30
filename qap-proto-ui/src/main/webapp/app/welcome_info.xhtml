@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <p:panel style="width: 620px; margin: 20px auto; font-size: 15px!important; border: none;" >
+                <br />
+                <h:graphicImage value="#{app.info.banner}" alt="#{app.info.name}" style="margin-left: 38px;"  /> 
+                <br />
+                <br />
+                <br />
+                <p><h:outputText value="#{app.info.description} gratuita, de administración y seguimiento de personas, que permite:" /></p>
+                <li  style="margin-left: 30px;" ><h:outputText value="Digitalizar información de Personas, Alumnos o Empleados." /></li>
+                <li  style="margin-left: 30px;" ><h:outputText value="Registrar la Asistencia a eventos, actividades o clases." /></li>
+                <li  style="margin-left: 30px;" ><h:outputText value="Evaluar el cumplimiento de las personas." /></li>
+                <li  style="margin-left: 30px;" ><h:outputText value="Compartir con sus contactos la información sobre su cumplimiento." /></li>
+                <br />
+
+                <h:form>
+                    <p><h:outputText value="Más información: " /></p>
+                    <p style="margin-left: 30px;">
+                        <h:link outcome="/app/under_const" fragment="que" 
+                                value="¿Qué es y qué hace #{app.info.name}?"/>
+                        &nbsp;&nbsp;&nbsp;
+                        <h:link outcome="app/under_const" fragment="porque" 
+                                value="¿Por qué usar #{app.info.name}?"/>
+                        &nbsp;&nbsp;&nbsp;
+                        <h:link outcome="app/under_const" fragment="quien" 
+                                value="¿Para quién es #{app.info.name}?"/>
+                    </p>
+                </h:form>
+            </p:panel>
+        </ui:composition>
+    </h:body>
+
+</html>

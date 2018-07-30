@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <div class="qi-rightbar qi-sidesection" 
+                 style="width: 300px; padding: 10px 10px 0px 10px;" >
+
+                <p:panel header="Inicio de Sesion" style="height: 350px;" >
+                
+                    <br />
+                    <h:form id="loginForm" prependId="false">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <h:outputLabel for="j_username" value="Usuario: * "/>  
+                        <p:inputText id="j_username" style="width:150px;"/>
+                        <h:outputLabel for="j_password" value="Clave: * " />  
+                        <p:password id="j_password" style="width:150px;"/>  
+                        <br />
+                        <p:commandButton id="btnLogin" value="INICIAR SESION" style="width:160px; height: 40px; font-weight: bold;"
+                                         action="#{id.doLogin()}"  
+                                         ajax="false" />
+                        
+                        <!--p:commandButton value="INICIAR SESION" style="width:160px; height: 40px; font-weight: bold;" 
+                                         onclick="window.open('','blankPopUp','status=no,toolbar=no,location=no,menubar=no,resizable,width=1200,height=750,scrollbars');" 
+                                         
+                                         action="/crud-list.xhtml"  ajax="false" />
+                                         action="/home.xhtml"                                           
+                                         action="# {id.doLogin()}"
+                                         ajax="false" /-->                        
+                    </h:panelGrid>
+
+                    <br />
+                                       
+                    <p style="color: red; margin: 0px 12px;">
+                    <h:outputText value="Usuario o Clave Incorrecta (${SPRING_SECURITY_LAST_EXCEPTION.message})"
+                                  rendered="${not empty SPRING_SECURITY_LAST_EXCEPTION}"/>
+                    </p>
+                    <br />
+                                           
+                    <p style="margin: 0px 12px;"><h:outputText value="No puede acceder? " />
+                       <h:commandLink action="/home" value="recupere su contraseña" immediate="true"   />
+                       <!--h:link outcome="home" value="registrese aqui!"/-->
+                    </p>
+                    <br />
+                    <p style="margin: 0px 12px;"><h:outputText value="Si no tiene una cuenta, " />
+                       <h:commandLink action="/home" value="registrese aqui!" immediate="true" />
+                       <!--h:link outcome="/home" value="registrese aqui!"/-->
+                    </p>
+                    <br />
+                    <p style="margin: 0px 12px;"><h:outputText value="Nueva Ventana: " />
+                        <h:commandLink id="openPopUp" value="Iniciar Sesión" target="blankPopUp" 
+                                   onclick="window.open('','blankPopUp','status=no,toolbar=no,titlebar=no,location=no,menubar=no,resizable,width=1400,height=870,scrollbars,left=10,top=10');" 
+                                   action="/home" />
+                    </p>
+                    </h:form>
+
+                </p:panel>
+            </div>    
+        </ui:composition>
+    </h:body>
+
+</html>
