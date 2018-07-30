@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <div class="qi-sidebar qi-sidesection" 
+                 style="height: #{config.heightArea}px; text-align: center; text-transform: uppercase;" >
+
+                <h:form id="ContactosSideForm" >
+
+                    <p:menu styleClass="qi-sidemenu nobox qi-sidesection">
+                        <p:menuitem value="Alumnos" ajax="false"  
+                                    actionListener="#{contactos.refresh}" 
+                                    styleClass="ui-state-active" >
+                            <f:setPropertyActionListener 
+                                target="#{contactos.filter.modulo}" value="Alumnos" />                            
+                        </p:menuitem>
+                        <p:menuitem value="Docentes" ajax="false" 
+                                    actionListener="#{contactos.refresh}"  
+                                    styleClass="#{config.activeWidget(contactos.modulo, 'Docentes')}" >
+                            <f:setPropertyActionListener 
+                                target="#{contactos.filter.modulo}" value="Docentes" />                            
+                        </p:menuitem>                       
+                    </p:menu>
+
+                    <p:dataTable value="#{contactos.filter.etiquetas}" var="item"
+                                 scrollable="true" scrollHeight="464" 
+                                 selectionMode="single" selection="#{contactos.filter.etiqueta}" rowKey="#{item}"
+                                 styleClass="list_side" emptyMessage="( ningun rubro )"
+                                 >
+                        <p:ajax event="rowSelect"    update=":ContactoListForm, :ContactosSideForm" />                           
+                        <p:ajax event="rowUnselect"  update=":ContactoListForm, :ContactosSideForm" 
+                                listener="#{contactos.filter.setFiltroEtiqueta('false')}"/> 
+                        <p:ajax event="rowDblselect" update=":ContactoListForm, :ContactosSideForm" 
+                                listener="#{contactos.filter.setFiltroEtiqueta('true')}"/> 
+
+                        <p:column  rendered="#{item ne ''}">
+                            <f:facet name="header">
+                                <h:outputText value="Cursos"/>
+                            </f:facet>
+                            <h:outputText value="#{item}" />
+                        </p:column>
+                    </p:dataTable>
+
+                </h:form>
+            </div>
+        </ui:composition>
+    </h:body>
+
+</html>

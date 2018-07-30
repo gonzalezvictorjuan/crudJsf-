@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        <ui:composition>
+            
+            <p:panel header="Tablero de Comando" 
+                     style="height: 280px; width: 630px; margin: 16px auto; text-transform: uppercase; " >
+
+                <h:graphicImage value="#{app.info.banner}" alt="#{app.info.name}" style="margin: 11px 120px; " height="140" width="304" /> 
+
+                <h:panelGrid  columns="3" >
+                    <p:button outcome="/crud-list.xhtml" value="Lista"  
+                              style="margin: 7px 20px; padding: 10px; height: 54px; width: 158px; font-size: 16px !important; 
+                                     background-repeat: no-repeat; background-position: left; background-image: url(#{resource['images:comprobante-48bn.png']})" />
+                    
+                    <p:button outcome="/crud-filter.xhtml" value="Vista"  
+                              style="margin: 7px 20px; padding: 10px; height: 54px; width: 158px; font-size: 16px !important; 
+                                     background-repeat: no-repeat; background-position: left; background-image: url(#{resource['images:articulo-48bn.png']})" />
+                    
+                    <p:button outcome="/contactos.xhtml" value="Edicion" 
+                              style="margin: 7px 20px; padding: 10px; height: 54px; width: 158px; font-size: 16px !important; 
+                                     background-repeat: no-repeat; background-position: left; background-image: url(#{resource['images:contacto-48bn.png']})" />
+
+                </h:panelGrid>
+
+            </p:panel>
+
+            <p:panel header="Bienvenido a #{appProp.AppTitle} - Instrucciones" 
+                     toggleable="true" toggleSpeed="500" collapsed="true"
+                     style="width: 630px; margin: 16px auto;" >
+                <h:panelGroup layout="block" style="float: right; margin-top: 8px;" >
+                    <h:graphicImage value="/resources/images/instrucciones.jpg" style="margin-right: 15px;" /> 
+                </h:panelGroup>
+
+                <p style="margin-top: 8px;" ><h:outputText value="Ha ingresado a #{appProp.AppTitle} como " />
+                    <b><h:outputText value="#{id.getCurrentUser()}"/></b></p>
+                <p><h:outputText value="Para acceder a las funciones del sistema..." /></p>
+                <li  style="margin-left: 30px;" ><h:outputText value="Utilice el MENU en la barra superior, o" /></li>
+                <br />
+                <li  style="margin-left: 30px;" ><h:outputText value="Utilice los Vinculos de OPERACIONES FRECUENTES, o" /></li>
+                <br />
+                <li  style="margin-left: 30px;" ><h:outputText value="Utilices los Botones del TABLERO DE COMANDO." /></li>
+                <br />
+                <br />
+                <br />
+            </p:panel>
+
+            <p:panel header="Tutorial de Programacion - Instrucciones" 
+                     toggleable="true" toggleSpeed="500" 
+                     style="width: 630px; margin: 16px auto; " >
+                <br />
+                <p><h:outputText value="Este tutorial tiene 4 etapas:" /></p>
+                <li  style="margin-left: 30px;" ><h:outputText value="Etapa 1, pantalla de Inicio y Lista" /></li>
+                <br />
+                <li  style="margin-left: 30px;" ><h:outputText value="Etapa 2, pantalla de Vista (implementa posibles filtros sobre la grilla)" /></li>
+                <br />
+                <li  style="margin-left: 30px;" ><h:outputText value="Etapa 3, pantalla de Edicion (implementa pop up y vista de edicion)" /></li>
+                <br />
+                <li  style="margin-left: 30px;" ><h:outputText value="Etapa 4, pantalla de Configuracion (otro uso de modulo de contactos para el perfil y los cursos)" /></li>
+                <br />
+                <br />
+            </p:panel>
+            
+        </ui:composition>
+    </h:body>
+
+</html>

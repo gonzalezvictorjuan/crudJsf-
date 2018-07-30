@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+<p:dataTable value="#{contactos.items}" var="item" style="margin: 0px -24px 8px -24px;"
+             scrollable="true" scrollHeight="405" 
+             selectionMode="single" selection="#{contactos.selected}" rowKey="#{item.id}"
+             styleClass="list_side" emptyMessage="( ningun contacto )"
+             >
+    <p:ajax event="rowSelect"   update=":ContactoListForm" />
+    <p:ajax event="rowUnselect" update=":ContactoListForm" />
+    <p:column filterBy="#{item.nombreCorto}" filterMatchMode="contains" >
+        <f:facet name="header">
+            <h:outputText value="#{contactos.filter.modulo}"/>
+        </f:facet>
+        <h:outputText value="#{item.nombreCorto}"  />
+    </p:column>
+</p:dataTable>
+
+</ui:composition>

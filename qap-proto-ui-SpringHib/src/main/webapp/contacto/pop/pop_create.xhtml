@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ContactoCreateDlg" widgetVar="ContactoCreateDialog" 
+                  header="Crear Nuevo Contacto" showEffect="drop" hideEffect="drop"
+                  modal="true" resizable="false" >
+
+            <h:form id="ContactoCreateForm">
+
+                <h:panelGroup id="new">                    
+                    
+                    <h:outputText value="Nuevo Contacto" 
+                                  style="font-weight: bold; font-size: 26px;" />
+                    <p:separator />
+
+                </h:panelGroup>
+
+                <ui:include src="pop_edit_data.xhtml"/>
+
+                <p:separator />
+                <p:commandButton id="btnSaveNewContacto" value="#{prop_crud.Grabar}" icon="ui-icon-disk" 
+                                 actionListener="#{contactos.saveNew}"  
+                                 update="display,:ContactoListForm,:growl" 
+                                 onclick="PF('ContactoCreateDialog').hide()" />
+                <p:commandButton value="#{prop_crud.Cancelar}" icon="ui-icon-cancel" 
+                                 onclick="PF('ContactoCreateDialog').hide()" style="float: right;" />
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

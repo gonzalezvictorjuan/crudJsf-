@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+<h:form id="PropSideForm" >
+    <h:panelGrid columns="2" cellpadding="2" style="margin: 0px -24px 8px -24px;">
+        <h:outputText value="Categoria:"/>
+        <h:inputText value="#{contactos.selected.categoria}" style="width: 100px; " />
+        <h:outputText value="Etiqueta:"/>
+        <h:inputText value="#{contactos.selected.etiqueta}" style="width: 100px; " />
+        <h:outputText value="Tipo Doc:"/>
+        <h:inputText value="#{contactos.selected.docTipo}" style="width: 100px; " />
+    </h:panelGrid>
+    <h:outputText value="Observaciones:" style="margin: 0px -20px 0px -20px;" />
+    <h:inputTextarea value="#{contactos.selected.notas}" rows="10" style="margin: 0px -20px; width: 176px; " />
+    <p:commandButton value="#{prop_crud.Grabar}" icon="ui-icon-disk"  
+                     style="margin: 16px 20px; width: 100px; " 
+                     actionListener="#{contactos.save}" 
+                     update="PropSideForm, :growl" />
+    
+</h:form>   
+</ui:composition>
+</html>

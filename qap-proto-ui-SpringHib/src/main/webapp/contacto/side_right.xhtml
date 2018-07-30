@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <h:panelGroup id="SideRight" layout="block" styleClass="qi-rightbar qi-sidesection" 
+                      style="width: 196px; height: #{config.heightArea}px;  padding: 10px 0px 0px 0px; overflow: hidden;"  >
+            <p:accordionPanel style="margin-top: 10px;" >
+                <p:tab title="Contactos" >
+                    <ui:include src="edit/edit_side_list.xhtml" />                    
+                </p:tab>
+                <!--p:tab title="Imagen / PDF" >
+                    <ui:include src="edit/edit_side_file.xhtml" />                    
+                </p:tab-->
+                <p:tab title="Propiedades" >
+                    <ui:include src="edit/edit_side_prop.xhtml" />                    
+                </p:tab>
+            </p:accordionPanel>
+
+        </h:panelGroup>
+    </ui:composition>
+
+</html>

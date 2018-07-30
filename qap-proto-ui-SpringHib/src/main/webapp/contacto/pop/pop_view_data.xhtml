@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" rendered="#{contactos.selected != null}">
+
+                        <h:outputText value="Codigo" />
+                        <h:outputText id="cod" value="#{contactos.selected.cod}" style="font-weight: bold;"/>
+
+                        <h:outputText value="Nombre Corto" />
+                        <h:outputText id="nombreCorto" value="#{contactos.selected.nombreCorto}"  style="font-weight: bold;" />
+
+                        <h:outputText value="#{prop_contactos.nombre}" />
+                        <h:outputText id="nombre" value="#{contactos.selected.nombre}"  style="font-weight: bold;" />
+
+                        <h:outputText value="#{prop_contactos.domicilio}" />
+                        <h:outputText id="domicilio" value="#{contactos.selected.domicilio}"  style="font-weight: bold;" />
+
+                        <h:outputText value="#{prop_contactos.localidad}" />
+                        <h:outputText id="localidad" value="#{contactos.selected.localidad}" style="font-weight: bold;" />
+
+                        <h:outputText value="#{prop_contactos.telefono}" />
+                        <h:outputText id="telefono" value="#{contactos.selected.telefono}"  style="font-weight: bold;" />
+
+                        <h:outputText value="#{prop_contactos.correo}" />
+                        <h:outputText id="correo" value="#{contactos.selected.correo}"  style="font-weight: bold;" />
+
+                        <h:outputText value="#{prop_contactos.docNro}" />
+                        <h:outputText id="docNro" value="#{contactos.selected.docNro}"  style="font-weight: bold;" />
+
+                        <h:outputText value="#{prop_contactos.condIva}" />
+                        <h:outputText value="#{contactos.selected.condIva}" style="font-weight: bold;" />
+
+                        <h:outputText value="#{prop_contactos.categoria}" />
+                        <h:outputText id="categoria" value="#{contactos.selected.categoria}"  style="font-weight: bold;" />
+
+                        <h:outputText value="#{prop_contactos.etiqueta}" />
+                        <h:outputText id="etiqueta" value="#{contactos.selected.etiqueta}"  style="font-weight: bold;" />
+
+                        <h:outputText value="Estado" />
+                        <h:outputText id="estado" value="#{contactos.selected.estado}"  style="font-weight: bold;" />
+
+                        <h:outputText value="#{prop_contactos.notas}" />
+                        <h:inputTextarea id="notas" value="#{contactos.selected.notas}" 
+                                         rows="4" readonly="true" style="width: 340px;" />
+
+                    </p:panelGrid>
+                </h:panelGroup>
+
+    </ui:composition>
+
+</html>

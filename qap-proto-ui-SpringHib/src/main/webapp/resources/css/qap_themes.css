@@ -1,0 +1,309 @@
+#qap.qi-backcolor { 
+    background: white; 
+}
+
+#qap.qi-notexture .qi-header {
+    background-image: none !important;
+}
+
+#qap .ui-corner-all {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#qap .qi-menubar.ui-corner-all {
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
+#qap .ui-corner-left {
+    -moz-border-top-left-radius: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-bottom-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+#qap .ui-corner-right {
+    -moz-border-top-right-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+    -moz-border-bottom-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+#qap .ui-inputfield, 
+#qap .ui-widget-content .ui-inputfield, 
+#qap .ui-widget-header .ui-inputfield {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#qap,
+#qap .ui-widget {
+    font-family: Arial,sans-serif;
+}
+
+#qap.home.qi-backcolor, 
+#qap.aristo.qi-backcolor, 
+#qap.blitzer.qi-backcolor, 
+#qap.start.qi-backcolor, 
+#qap.flick.qi-backcolor, 
+#qap.hot-sneaks.qi-backcolor, 
+#qap.qi-backcolor { /* fondo blancos para todos los box */
+    background: white; 
+}
+/*esto lo agrego para que no rompa los selectOneMenu con primefaces 5.3*/
+#qap .ui-selectonemenu {
+    padding-right: 0px; 
+}
+#qap .ui-selectonemenu .ui-selectonemenu-label {
+    width: auto;
+}
+
+/* este es el boton "flechita" del split button, se pone en 5px para que se acomode al valor margin:5px seteado en los splitbutton*/
+#qap .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
+    margin: inherit;
+}
+
+/* ARISTO */
+#qap.aristo .qi-header,
+#qap.aristo .ui-widget-header {
+    background: #85b2cb url("") 50% 50% repeat-x;
+    background: #85b2cb linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+    background: #85b2cb -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,0.4)));
+    background: #85b2cb -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+}     
+
+#qap.aristo .qi-header a {
+    color: #3A3A3A;      /* gris oscuro */
+}         
+
+#qap.aristo,
+#qap.aristo .qi-menubar,
+#qap.aristo .qi-footer,
+#qap.aristo .qi-sidebar,
+#qap.aristo .qi-sidemenu {
+    background: #eeeeee; /* gris claro */
+    color: #3A3A3A;      /* gris oscuro */
+}         
+
+/* OMEGA */
+#qap.omega .qi-header,
+#qap.omega .ui-dialog-titlebar,
+#qap.omega .ui-state-active,
+#qap.omega .ui-widget-header {
+    background: #186ba0;
+    border-color: #186ba0;
+    color: white;
+}     
+
+#qap.omega .qi-header a {
+    color: white;
+}         
+
+#qap.omega,
+#qap.omega .qi-footer,
+#qap.omega .qi-sidebar,
+#qap.omega .qi-sidemenu {
+    background: #eeeeee; /* gris claro */
+    color: #3A3A3A;      /* gris oscuro */
+}         
+
+#qap.omega .ui-datatable-header,
+#qap.omega .ui-datatable-footer {
+    background: #eeeeee; /* gris claro */
+    color: #3A3A3A;      /* gris oscuro */
+    border-color: #d5d5d5;      /* gris oscuro */
+}         
+
+#qap.omega .qi-menubar {
+    background: #707070;  /* gris oscuro */
+    color: white;     
+}         
+
+#qap.omega .qi-menubar a {
+    color: white;     
+}   
+
+#qap.omega .qi-menubar .ui-icon,
+#qap.omega .ui-state-active .ui-icon {
+    background-image: url("/pymex-beta/faces/javax.faces.resource/images/ui-icons_ffffff_256x240.png?ln=primefaces-blitzer");
+}   
+
+
+#qap.omega .ui-state-highlight a, 
+#qap.omega .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a,
+#qap.omega .ui-state-active {
+    color: white;
+}     
+
+#qap.omega .qi-menubar .ui-state-hover {
+    background: #707070;  /* gris oscuro */
+}         
+
+#qap.omega .ui-dialog-titlebar,
+#qap.omega .ui-dialog-title {
+    background: #186ba0 !important;
+    margin: 10px;
+    color: white;
+}     
+
+/* BLITZER */
+#qap.blitzer .qi-header,
+#qap.blitzer .ui-state-active,
+#qap.blitzer .ui-widget-header {
+    background: rgb(0,80,148);
+    border-color: rgb(0,70,128);
+    color: white;
+}     
+
+#qap.blitzer .qi-header a {
+    color: white;
+}         
+
+#qap.blitzer,
+#qap.blitzer .qi-footer,
+#qap.blitzer .qi-sidebar,
+#qap.blitzer .qi-sidemenu {
+    background: #eeeeee; /* gris claro */
+    color: #3A3A3A;      /* gris oscuro */
+}         
+
+#qap.blitzer .qi-menubar {
+    background: #505050;  /* gris oscuro */
+}         
+
+#qap.blitzer .qi-menubar a {
+    color: white;     
+}         
+
+#qap.blitzer .ui-state-default .ui-icon {
+    background-image: url("/pymex-beta/faces/javax.faces.resource/images/ui-icons_454545_256x240.png?ln=primefaces-casablanca");
+}   
+
+#qap.blitzer .qi-menubar .ui-icon,
+#qap.blitzer .ui-state-active .ui-icon {
+    background-image: url("/pymex-beta/faces/javax.faces.resource/images/ui-icons_ffffff_256x240.png?ln=primefaces-blitzer");
+}   
+
+#qap.blitzer .ui-state-default {
+    color: #454545;
+}     
+
+#qap.blitzer .ui-state-active {
+    color: white;
+}     
+
+#qap.blitzer .qi-menubar .ui-state-hover {
+    background: #707070;  /* gris oscuro */
+}         
+
+/* START */
+#qap.start .qi-header {
+    /* header ui-widget-header */
+    background: #2191c0 url("/pymex-beta/faces/javax.faces.resource/images/ui-bg_gloss-wave_75_2191c0_500x100.png?ln=primefaces-start") 50% 50% repeat-x;
+}         
+
+#qap.start .qi-header,
+#qap.start .qi-header a {
+    color: whitesmoke;
+}         
+
+#qap.start .ui-state-default {
+    /* borde menos luminoso */
+    border-color: #b6d9e2;
+}     
+
+#qap.start .ui-state-default, 
+#qap.start .ui-widget-content .ui-state-default, 
+#qap.start .ui-widget-header .ui-state-default,
+#qap.start .qi-menubar,
+#qap.start .qi-menubar .ui-widget-content,
+#qap.start .qi-menubar .ui-menuitem {
+    /* sin textura */
+    background: rgb(46,144,189);/*#0078ae; /* url("/PymeX/faces/javax.faces.resource/images/ui-bg_glass_45_0078ae_1x400.png?ln=primefaces-start") 50% 50% repeat-x; */
+}
+
+#qap.start .qi-menubar a {
+    color: #ffffff;      /* white */
+}         
+
+#qap.start .qi-menubar .ui-icon {
+    background-image: url("/pymex-beta/faces/javax.faces.resource/images/ui-icons_e0fdff_256x240.png?ln=primefaces-start");
+}
+
+#qap.start,
+#qap.start .qi-footer,
+#qap.start .qi-sidebar,
+#qap.start .qi-sidemenu {
+    background: #f0f0f0; /* gris claro */
+    color: #3A3A3A;      /* gris oscuro */
+}         
+
+#qap.start .ui-inputfield,
+#qap.start .ui-widget-content .ui-inputfield, 
+#qap.start .ui-widget-header .ui-inputfield {
+    /*restaura default para inputs*/
+    background: white;
+    color: #313131;
+    box-shadow: none;
+}
+
+/* FLICK */
+#qap.flick .qi-header {
+    /* wave header  */
+    background: #0073ea;
+    color: white;
+}     
+
+#qap.flick .qi-header a {
+    color: white;
+}         
+
+#qap.flick,
+#qap.flick .qi-menubar,
+#qap.flick .qi-footer,
+#qap.flick .qi-sidebar,
+#qap.flick .qi-sidemenu {
+    background: #f6f6f6; /* gris claro */
+    color: #444444;      /* gris oscuro */
+}         
+
+/* HOT-SNEAKS */
+#qap.hot-sneaks .qi-header {
+    background: #db4865 url("/pymex-beta/faces/javax.faces.resource/images/ui-bg_diagonals-small_40_db4865_40x40.png?ln=primefaces-hot-sneaks")  50% 50% repeat;
+}     
+
+#qap.hot-sneaks .qi-menubar {
+    background: #35414f url("/pymex-beta/faces/javax.faces.resource/images/ui-bg_dots-small_35_35414f_2x2.png?ln=primefaces-hot-sneaks")  50% 50% repeat;
+    color: white;
+}         
+
+#qap.hot-sneaks .qi-menubar .ui-icon {
+    background-image: url("/pymex-beta/faces/javax.faces.resource/images/ui-icons_ffffff_256x240.png?ln=primefaces-hot-sneaks");
+}   
+
+#qap.hot-sneaks .qi-header,
+#qap.hot-sneaks .qi-header a,
+#qap.hot-sneaks .qi-menubar a {
+    color: white;
+}         
+
+#qap.hot-sneaks .ui-widget-header {
+    color: white;
+}     
+
+#qap.hot-sneaks,
+#qap.hot-sneaks .qi-footer,
+#qap.hot-sneaks .qi-sidebar,
+#qap.hot-sneaks .qi-sidemenu {
+    background: #eeeeee; /* gris claro */
+    color: #3A3A3A;      /* gris oscuro */
+}         
+

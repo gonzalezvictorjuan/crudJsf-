@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ContactoAddFileDlg" widgetVar="ContactoAddFileDialog" 
+                  modal="true" resizable="false"  
+                  header="Adjuntar Archivo">
+
+            <h:form  id="popUploadForm" enctype="multipart/form-data" 
+                     style="width: 734px; margin: 0px auto;" >    
+                <p:fileUpload fileUploadListener="#{fileUploadJsf.handleFileUpload}" mode="advanced" 
+                              dragDropSupport="true"
+                              label="Elegir" cancelLabel="Cancelar" uploadLabel="Subir Archivo"
+                              update=":ContactoCreateForm, :ContactoListForm, :ContactoEditForm, messages" 
+                              sizeLimit="900000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/">  
+                    <!--f:attribute name="fileName" value="# {contactos.selected.fileName}"/-->
+                    <f:attribute name="fileName" value="# {contactos.fileName()}"/>
+                    <f:attribute name="modulo" value="Contactos"/>
+                </p:fileUpload>  
+                
+                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />  
+                <p:separator />
+                    
+                <p:commandButton value="#{prop_crud.Cerrar}" icon="ui-icon-close" 
+                                 onclick="PF('ContactoAddFileDialog').hide()" style="float: right;" />
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

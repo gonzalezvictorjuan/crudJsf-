@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/resources/templates/qap_template.xhtml">
+    
+    <ui:define name="menu">
+        <ui:include src="/app/appmenu.xhtml" />                     
+    </ui:define>
+
+    <ui:define name="sidebar">
+        <ui:include src="/contacto/side_left.xhtml" />                     
+        <!--ui:include src="/contacto/side_right.xhtml" /-->                     
+    </ui:define>
+
+    <ui:define name="body">
+
+        <ui:include src="/contacto/center.xhtml"/>
+        <ui:include src="/contacto/pop/pop_create.xhtml"/>
+        <ui:include src="/contacto/pop/pop_edit.xhtml"/>
+        <ui:include src="/contacto/pop/pop_view.xhtml"/>
+        <ui:include src="/contacto/pop/pop_remove.xhtml"/>
+        <ui:include src="/contacto/pop/pop_import.xhtml"/>
+        <ui:include src="/contacto/pop/pop_addfile.xhtml"/>
+
+    </ui:define>
+
+</ui:composition>

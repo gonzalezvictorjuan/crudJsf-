@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    
+<h:form id="ContactoListForm">
+
+    <p:panelGrid layout="grid" columns="2" 
+                 style="margin-bottom: 8px;" >
+        <h:panelGroup layout="block"  
+                      style="float: left; padding: 0px; margin: 2px 0px; width: 380px;" >
+    <!-- TITULO -->
+        <h1>Vistas de Contactos</h1>
+
+    <!-- CATEGORIAS -->
+        <h:selectOneRadio value="Activo"                           
+                          style="margin: -11px 0px 0px -6px;" >                
+            <f:selectItem itemValue="Activo" 
+                          itemLabel="Activos"/>
+            <f:selectItem itemValue="Inactivo" 
+                          itemLabel="Inactivos" />
+            <p:ajax event="change"  listener="#{contactos.refresh}"
+                    update="datalist"/>
+        </h:selectOneRadio>
+
+        </h:panelGroup>
+
+    <!-- BOTONERA ABM -->
+        <h:panelGroup layout="block" 
+                      style="float: right; padding-top: 4px; width: 260px;" 
+                      rendered="false">
+            <p:splitButton id="createButton" icon="ui-icon-plusthick" value="Nuevo" 
+                             title="Crear uno Nuevo (popup)" 
+                             style="width: 100px; margin-right: -1px;" 
+                             onclick="PF('ContactoCreateDialog').show()"
+                             actionListener="#{contactos.prepareCreate}" 
+                             disabled="true" >
+                <p:menuitem value="Importar Contactos" icon="ui-icon-arrowreturnthick-1-s" 
+                            disabled="true" 
+                            onclick="PF('ContactoImportDialog').show()" />
+            </p:splitButton>
+
+            <p:commandButton id="editButton"   icon="ui-icon-pencil" title="#{prop_crud.Editar}" 
+                             style="width: 30px; margin-left: 30px;"  
+                             onclick="PF('ContactoEditDialog').show()" 
+                             disabled="true" />
+            <p:commandButton id="deleteButton" icon="ui-icon-trash"  title="#{prop_crud.Eliminar}" 
+                             style="width: 30px;"  
+                             onclick="PF('ContactoDeleteDialog').show()" 
+                             disabled="true" />
+
+            <p:commandButton id="adjButton" icon="ui-icon-image" title="Asociar Imagen" 
+                             style="margin-left: 12px; width: 30px; margin-bottom: 16px;"  immediate="true"
+                             onclick="PF('ContactoAddFileDialog').show()"  
+                             update=":ContactoListForm" 
+                             disabled="true"/>
+
+            <br class="clearfloat" />
+
+            <h:commandLink value="#{prop_crud.Actualizar}" style="margin-left: 204px; margin-bottom: 10px;" 
+                           actionListener="#{contactos.refresh}" immediate="true"/>
+        </h:panelGroup>
+
+    </p:panelGrid>
+    <!-- FILTROS Y VISTAS -->
+    <p:panelGrid layout="grid" columns="2" 
+                 style="margin-bottom: 8px; padding: 0px;">   
+
+        <p:selectOneButton id="ContactoFilter" value="false" 
+                           style="float: left; margin:2px -2px; " >  
+                <f:selectItem itemValue="false" itemLabel="de TODOS los Cursos" />  
+                <f:selectItem itemValue="true"  itemLabel="de un Curso: #{contactos.filter.etiqueta}" />  
+                <p:ajax event="change" listener="#{contactos.refresh}" 
+                        update=":ContactoListForm, :ContactosSideForm" />
+        </p:selectOneButton>            
+
+        <p:selectOneButton value="#{contactos.filter.vista}" 
+                           style="float: right; margin:2px -2px; ">  
+            <f:selectItem itemValue="Fotos" itemLabel="Fotos" />
+            <f:selectItem itemValue="Lista" itemLabel="Lista" /> 
+            <f:selectItem itemValue="Info" itemLabel="Info" />                
+            <p:ajax event="change" update=":ContactoListForm, :ContactosSideForm"/>
+        </p:selectOneButton>
+
+    </p:panelGrid>
+
+    <h:panelGroup rendered="#{contactos.filter.vista eq 'Fotos'}" >
+        <ui:include src="list/list_image.xhtml"/>
+    </h:panelGroup>
+    <h:panelGroup rendered="#{contactos.filter.vista eq 'Lista'}" >
+        <ui:include src="list/list.xhtml"/>
+    </h:panelGroup>
+    <h:panelGroup rendered="#{contactos.filter.vista eq 'Info'}" >  
+        <ui:include src="list/list_info.xhtml"/>
+    </h:panelGroup>        
+</h:form>
+
+</ui:composition>

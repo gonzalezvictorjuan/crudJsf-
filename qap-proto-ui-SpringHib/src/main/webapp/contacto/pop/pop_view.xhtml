@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ContactoViewDlg" widgetVar="ContactoViewDialog" 
+                  header="Contacto"  showEffect="drop" hideEffect="drop"
+                  modal="true" resizable="false" >
+
+            <h:form id="ContactoViewForm">
+
+                <h:panelGroup id="nav">                    
+                    
+                    <p:commandButton value="#{prop_crud.Siguiente}" icon="ui-icon-triangle-1-e" 
+                                     actionListener="#{contactos.next}" 
+                                     update=":ContactosSideForm, display,:ContactoListForm, :ContactoViewForm" style="float: right;" iconPos="right" />
+                    <p:commandButton value="#{prop_crud.Anterior}" icon="ui-icon-triangle-1-w" 
+                                     actionListener="#{contactos.previous}" 
+                                     update=":ContactosSideForm, display,:ContactoListForm, :ContactoViewForm" style="float: right;"/>
+                    <h:outputText value="#{contactos.selected.nombreCorto} &nbsp;" 
+                                  style="font-weight: bold; font-size: 26px;" />
+                    <p:separator />
+
+                </h:panelGroup>
+
+                <ui:include src="pop_view_data.xhtml"/>
+
+                <p:separator />
+                <p:commandButton value="#{prop_crud.Cerrar}" icon="ui-icon-closethick" 
+                                 onclick="PF('ContactoViewDialog').hide()" style="float: right;" />
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>
